@@ -24,15 +24,16 @@ import java.util.concurrent.TimeoutException;
  */
 public class RabbitChatClient {
 
-    private static final String EXCHANGE_LOGS = "logs";
-    private static final String EXCHANGE_USERS = "users";
-    private static final String EXCHANGE_CHANNELS = "channels";
+    private static final String IP_HOST = "167.205.32.46";
+    private static final String EXCHANGE_LOGS = "019059_logs";
+    private static final String EXCHANGE_USERS = "019059_users";
+    private static final String EXCHANGE_CHANNELS = "019059_channels";
 
     private final Connection connection;
     private final Channel channel;
 
     private ArrayList<String> users = new ArrayList<>();
-    private HashMap<String, String> channels = new HashMap<>();
+    private final HashMap<String, String> channels = new HashMap<>();
     private String username = "guest" + String.valueOf(System.currentTimeMillis() / 1000L);
 
     public RabbitChatClient(String host) throws IOException, TimeoutException {
@@ -192,7 +193,7 @@ public class RabbitChatClient {
      * @throws java.util.concurrent.TimeoutException
      */
     public static void main(String[] args) throws IOException, TimeoutException {
-        final RabbitChatClient client = new RabbitChatClient("localhost");
+        final RabbitChatClient client = new RabbitChatClient(IP_HOST);
 
         client.login();
 

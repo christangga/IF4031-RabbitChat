@@ -1,9 +1,16 @@
 # IF4031-RabbitChat
-Implementation of IRC-Like Chatting System using RabbitMQ in Windows
+Implementation of IRC-Like Chatting System using RabbitMQ in Windows using Java
 
 By:
 - Christ Angga Saputra - 13512019
 - Jeffrey Lingga Binangkit - 13512059
+
+The server we use is `167.205.32.46:5672`
+
+We use 3 exchanges in this application for:
+- 019059_logs for sending all logs to all online clients. Exchange type is fanout.
+- 019059_users for sending all online users to all online clients. Exchange type is fanout.
+- 019059_channels for sending messages in all channels. Exchange type is direct with channelname as binding.
 
 ## Petunjuk instalasi/building
 1. Ada 2 cara untuk instalasi program ini, yaitu:
